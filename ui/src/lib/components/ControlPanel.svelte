@@ -3,6 +3,7 @@
   import { projectList, modelList, internet, tokenUsage, agentState, messages, searchEngineList} from "$lib/store";
   import { createProject, fetchMessages, fetchInitialData, deleteProject, fetchAgentState} from "$lib/api";
   import { get } from "svelte/store";
+  import Seperator from "./ui/Seperator.svelte";
 
   let selectedProject;
   let selectedModel;
@@ -95,17 +96,17 @@
   
 </script>
 
-<div class="control-panel">
+<div class="control-panel border-b border-border bg-background pb-3">
   <div class="dropdown-menu relative inline-block">
     <button
       type="button"
-      class="inline-flex items-center justify-center w-full gap-2 rounded-md px-3 py-2 text-sm font-semibold border-2 border-gray-300"
+      class="inline-flex items-center justify-between w-full text-white h-10 gap-2 px-3 py-2 text-sm font0-medium min-w-[200px] bg-secondary rounded-xl"
       id="project-button"
       aria-expanded="true"
       aria-haspopup="true"
     >
       <span id="selected-project">{selectedProject}</span>
-      <i class="fas fa-angle-down"></i>
+      <i class="fas fa-angle-down text-tertiary"></i>
     </button>
     <div
       id="project-dropdown"
@@ -146,34 +147,38 @@
     </div>
   </div>
   <div
-    class="right-controls"
+    class=""
     style="display: flex; align-items: center; gap: 20px"
   >
     <div class="flex items-center space-x-2">
       <span>Internet:</span>
-      <div
-        id="internet-status"
-        class="internet-status"
-        class:online={$internet}
-        class:offline={!$internet}
-      ></div>
+      <p class="text-white">
+        {#if internet}        
+        OK
+        {:else}
+        NO
+        {/if}
+      </p>
       <span id="internet-status-text"></span>
     </div>
+
+    <Seperator />
+
     <div class="flex items-center space-x-2">
       <span>Token Usage:</span>
-      <span id="token-count" class="token-count-animation">{$tokenUsage}</span>
+      <span id="token-count" class="token-count-animation text-white">{$tokenUsage}</span>
     </div>
     <div class="relative inline-block text-left">
       <div>
         <button
           type="button"
-          class="inline-flex items-center justify-center w-fit gap-2 rounded-md px-3 py-2 text-sm font-semibold border-2 border-gray-300"
+          class="inline-flex items-center justify-between min-w-[200px] text-white w-fit gap-2 px-3 py-2 text-sm h-10 bg-secondary rounded-xl"
           id="search-engine-button"
           aria-expanded="true"
           aria-haspopup="true"
         >
           <span id="selected-search-engine">{selectedSearchEngine}</span>
-          <i class="fas fa-angle-down"></i>
+          <i class="fas fa-angle-down text-tertiary"></i>
         </button>
       </div>
 
@@ -209,13 +214,13 @@
       <div>
         <button
           type="button"
-          class="inline-flex items-center justify-center w-fit gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold border-2 border-gray-300"
+          class="inline-flex items-center text-white justify-between w-fit gap-x-1.5 min-w-[150px] px-3 py-2 text-sm h-10 bg-secondary rounded-xl"
           id="model-button"
           aria-expanded="true"
           aria-haspopup="true"
         >
           <span id="selected-model">{selectedModel}</span>
-          <i class="fas fa-angle-down"></i>
+          <i class="fas fa-angle-down text-tertiary"></i>
         </button>
       </div>
 
@@ -319,7 +324,7 @@
   }
 
   .right-controls > *:not(:last-child) {
-    border-right: 1px solid #4b5563;
+    border-right: 1px solid #495058;
     padding-right: 20px;
   }
 </style>

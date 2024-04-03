@@ -20,8 +20,8 @@
       convertEol: true,
       rows: 1,
       theme: {
-        background: "#d3d3d3",
-        foreground: "#000000",
+        background: "#111315",
+        foreground: "#9CA3AB",
         innerText: "#000000",
         cursor: "#000000",
       },
@@ -72,18 +72,18 @@
   }
 </script>
 
-<div class="flex flex-col border-2 rounded-lg h-1/2">
-  <div class="p-2 flex items-center border-b">
-    <div class="flex space-x-2 ml-2 mr-4">
-      <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-      <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
-      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+<div class="flex flex-col border-[4px] overflow-hidden rounded-3xl h-1/2 border-window-outline bg-terminal-background">
+  <div class="p-2 flex items-center h-12">
+    <div class="flex space-x-2 ml-2 mr-4 text-terminal-window-dots">
+      <div class="w-3 h-3 bg-current rounded-full"></div>
+      <div class="w-3 h-3 bg-current rounded-full"></div>
+      <div class="w-3 h-3 bg-current rounded-full"></div>
     </div>
-    <span id="terminal-title">Terminal</span>
+    <span class="text-foreground-secondary">Terminal</span>
   </div>
   <div
     id="terminal-content"
-    class="h-full w-full rounded-bl-lg "
+    class="h-full w-full rounded-bl-lg"
     bind:this={terminalElement}
   ></div>
 </div>

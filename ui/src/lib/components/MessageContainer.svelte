@@ -16,31 +16,35 @@
 
 <div
   id="message-container"
-  class="flex flex-col flex-1 gap-2 overflow-y-auto border-2 rounded-lg px-2 py-4"
+  class="flex flex-col flex-1 gap-2 overflow-y-auto rounded-lg px-2 py-4"
   bind:this={messageContainer}
 >
+
+
+<!-- test - test - test -->
+
   {#if $messages !== null}
-  <div class="flex flex-col px-2 divide-y-2">
+  <div class="flex flex-col divide-y-2">
     {#each $messages as message}
-      <div class="flex items-start px-2 py-4 gap-2">
+      <div class="flex items-start py-1 pb-4 gap-3">
         {#if message.from_devika}
           <img
-            src="/assets/devika-avatar.png"
+            src="/assets/devika-avatar.svg"
             alt="Devika's Avatar"
             class="avatar rounded-full flex-shrink-0"
-            style="width: 40px; height: 40px;"
+            style="width: 28; height: 28;"
           />
         {:else}
           <img
-            src="/assets/user-avatar.png"
+            src="/assets/user-avatar.svg"
             alt="User's Avatar"
             class="avatar rounded-full flex-shrink-0"
-            style="width: 40px; height: 40px;"
+            style="width: 28; height: 28;"
           />
         {/if}
-        <div class="flex flex-col w-full">
-          <p class="text-xs text-gray-400">
-            {message.from_devika ? "Devika" : "You"}
+        <div class="flex flex-col w-full gap-2 pt-1 text-white">
+          <p class="text-xs text-foreground">
+            {message.from_devika ? "Devika" : "You"} |
             <span class="timestamp">{new Date(message.timestamp).toLocaleTimeString()}</span>
           </p>
           {#if message.from_devika && message.message.startsWith("{")}
@@ -79,11 +83,11 @@
 </div>
 
 <style>
-  .timestamp {
+  /* .timestamp {
     margin-left: 8px;
     font-size: smaller;
     color: #aaa;
-  }
+  } */
 
   input[type="checkbox"] {
     appearance: none;
