@@ -4,7 +4,7 @@
 
 <h1 align="center">🚀 Devika - Agentic AI Software Engineer 👩‍💻</h1>
 
-![devika screenshot](.assets/devika-screenshot.png)
+![devika screenshot](.assets/preview.png)
 
 > [!IMPORTANT]  
 > This project is currently in a very early development/experimental stage. There are a lot of unimplemented/broken features at the moment. Contributions are welcome to help out with the progress!
