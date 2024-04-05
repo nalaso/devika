@@ -62,6 +62,8 @@
     <div class="flex flex-col gap-4 w-1/2">
       <BrowserWidget />
       <TerminalWidget />
+      <!-- TODO -->
+      <!-- code editor -->
     </div>
   </div>
 </div>
